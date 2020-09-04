@@ -1,0 +1,26 @@
+#bio{
+  padding-top: 80px;
+  /* height: calc(100vh - 80px - 60px);
+  overflow:scroll; */
+ }
+ 
+ .bio-header{
+   margin-bottom:30px;
+ }
+ .bio-photo{
+   margin-bottom:20px;
+ }
+ .bio-photo img{
+ width:300px;
+ height:auto;
+ }
+ 
+ .bio-desc{
+    font-size:1.6rem;
+    text-align:justify;
+ }
+ .bio-name{
+   font-size:2rem;
+   margin-bottom:20px;
+ }
+ 
