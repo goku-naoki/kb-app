@@ -4,7 +4,7 @@
       <h2>Create Item</h2>
     </div>
     <div class="create-item-form">
-      <%= form_with model: @item , local: true do |f| %>
+      <%= form_with url:items_path, model: @item ,method: :post,local: true do |f| %>
         <div class="create-item-form-image">
           <div class="create-item-form-image-preview"></div>
           <p class="create-item-form-image-title">Chose Images</p>
@@ -24,7 +24,6 @@
           <p class="create-item-form-price-title">Price</p>
           <%= f.text_field :price,class:'create-item-form-price-filed' %>
         </div>
-
         <%= f.submit "Submit" ,class:"sell-btn" %>
       <% end %>
     </div>

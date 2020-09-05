@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:index]
   resources :barber, only: [:index]
   resources :art, only: [:index]
-  resources :items, only: [:index,:show,:new]
+  resources :items, only: [:index,:show,:new,:create]
 
 
 end
