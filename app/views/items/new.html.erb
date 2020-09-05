@@ -9,10 +9,11 @@
           <div class="create-item-form-image-preview" id="image-preview"></div>
           <p class="create-item-form-image-title">Chose Images</p>
           <div class="create-item-form-image-chose" id="input-box">
-            <%= f.file_field :images,name:'item[images][]',data: {index:0} ,class:'image-field' %>
+            <%= f.file_field :images,name:'item[images][]',data: {index:0} ,class:'image-field',id:"image-0-input",style:"display:none;" %>
              <%# <%= f.file_field :images,name:'item[images][]' ,class:'image-field',style:"display:none;" %>
           </div>
           <i class="fa fa-image fa-3x" id="image-icon" ></i>
+         
         </div>
         <div class="create-item-form-name">
           <p class="create-item-form-name-title">Product Name</p>
@@ -31,3 +32,5 @@
     </div>
   </div>
 </div>
+
+ 
