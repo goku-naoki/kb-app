@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   // const imageInputs=document.getElementBy('item_images')
   
+  const preview=()=>{
     const imageInputs=Array.from(document.getElementsByClassName('image-field'));
     console.log(imageInputs)
   
@@ -21,6 +22,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
     imageInputs.forEach((imageInput)=>{
       imageInput.addEventListener('change',(event)=>{
+
+        // const imageLength=Array.from(document.getElementsByClassName("create-item-form-image-preview-box")).length
+        // console.log(imageLength)
+       
+
         const index=Number(event.target.getAttribute('data-index'))
         console.log(index)
         const file=event.target.files[0]
@@ -28,12 +34,18 @@ document.addEventListener('DOMContentLoaded',()=>{
         const imageBox=createImage(imageSrc);
         const previewBox=document.getElementById('image-preview')
         previewBox.insertAdjacentHTML('beforeend', imageBox);
+        if(imageInputs.length<3){
         const nextIndex=index + 1
         const imageInput=createInput(nextIndex)
         const inputBox=document.getElementById('input-box')
         inputBox.insertAdjacentHTML('beforeend', imageInput);
-        console.log(imageInputs)
+        preview()
+        }else{
+          return false
+        }
       })
     })
+  }
 
+  preview()
 })
