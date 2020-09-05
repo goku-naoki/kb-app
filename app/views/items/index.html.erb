@@ -8,7 +8,7 @@
         <div class="item-box">
           <%=link_to item_path(item) do%>
             <div class="item-box-pic">
-              <%= image_tag item.image %>
+              <%= image_tag item.images[0] %>
             </div>
             <p class="item-box-name">
               <%=item.name %>

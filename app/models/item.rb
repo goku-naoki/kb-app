@@ -1,9 +1,9 @@
 class Item < ApplicationRecord
 
-  has_one_attached :image
+  has_many_attached :images
 
   with_options presence: true do
-    validates :image
+    validates :images
     validates :name
     validates :detail
     validates :price

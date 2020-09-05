@@ -54,7 +54,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'sassc'
-gem 'font-awesome-sass'
+gem 'font-awesome-rails'
 gem 'mini_magick'
 gem 'payjp'
 gem 'pry-rails'
