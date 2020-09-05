@@ -1,23 +1,28 @@
-<div id="items">
+<div id="create-item">
   <div class="container">
-    <div class="items-header">
-      <h2>Shop</h2>
+    <div class="create-item-header">
+      <h2>Create Item</h2>
     </div>
-    <div class="items-list">
-      <div class="item-box">
-        <div class="item-box-pic">
-          <%= image_tag 'IMG_0526.jpg' %>
+    <div class="create-item-form">
+      <%= form_with model: @item , local: true do |f| %>
+        <div class="create-item-form-image">
+          <div class="create-item-form-image-preview">
+          </div>
+          <div class="create-item-form-image-chose">
+            <%= f.file_field :image %>
+          </div>
         </div>
-        <p class="item-box-name">
-          pb
-        </p>
-        <p class="item-box-price">
-         $4,900円
-        </p>
-      </div>
-    </div>
-    
-  
+        <div class="create-item-form-name">
+          <%= f.text_field :name %>
+        </div>
+        <div class="create-item-form-detail">
+          <%= f.text_area :detail %>
+        </div>
+        <div class="create-item-form-price">
+          <%= f.text_field :price %>
+        </div>
 
+      <% end %>
+    </div>
   </div>
 </div>

@@ -35,3 +35,88 @@
    }
  }
  
+
+ #create-item{
+  padding-top: 80px;
+  /* height: calc(100vh - 80px - 60px);
+  overflow:scroll; */
+ }
+ 
+ .create-item-header{
+   margin-bottom:30px;
+   text-align:center
+ }
+
+ .create-item-form{
+   width:60%;
+   margin:0 auto;
+   background-color: rgba(var(--b3f,250,250,250),1);
+   text-align:center;
+   padding-bottom:30px;
+    &-image{
+      margin-bottom:20px;
+      padding-bottom:20px;
+      // border-bottom:1px solid  rgba(var(--f52,142,142,142),1);
+    &-preview{
+      width:80%;
+      height:100px;
+      margin:0 auto;
+      margin-bottom:30px;
+    }
+    &-title{
+      font-size:1.8rem;
+      margin-bottom:20px;
+    }
+    &-chose{
+    }
+    }
+    &-name{
+      margin-bottom:20px;
+      padding-bottom:20px;
+      // border-bottom:1px solid  rgba(var(--f52,142,142,142),1);
+      &-title{
+        font-size:1.8rem;
+        margin-bottom:20px;
+      }
+      &-field{
+        height:30px;
+        width:200px;
+        border:1px solid  rgba(var(--f52,142,142,142),1);
+      }
+    }
+    &-detail{
+      margin-bottom:20px;
+      padding-bottom:20px;
+      // border-bottom:1px solid  rgba(var(--f52,142,142,142),1);
+      &-title{
+        font-size:1.8rem;
+        margin-bottom:20px;
+      }
+      &-field{
+        height:50px;
+        width:200px;
+        border:1px solid  rgba(var(--f52,142,142,142),1);
+      }
+    }
+    &-price{
+      margin-bottom:20px;
+      padding-bottom:20px;
+      // border-bottom:1px solid  rgba(var(--f52,142,142,142),1);;
+      &-title{
+        font-size:1.8rem;
+        margin-bottom:20px;
+      }
+      &-field{
+        height:30px;
+        width:200px;
+        border:1px solid  rgba(var(--f52,142,142,142),1);
+      }
+    }
+  .sell-btn{
+    height:30px;
+    width:200px;
+    border:1px solid  rgba(var(--f52,142,142,142),1);
+    background:white;
+    border-radius: 10px;;
+  }
+}
