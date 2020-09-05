@@ -4,72 +4,21 @@
       <h2>Shop</h2>
     </div>
     <div class="items-list">
-      <div class="item-box">
-        <div class="item-box-pic">
-          <%= image_tag 'IMG_0526.jpg' %>
+      <% @items.each do |item| %>
+        <div class="item-box">
+          <%=link_to item_path(item) do%>
+            <div class="item-box-pic">
+              <%= image_tag item.image %>
+            </div>
+            <p class="item-box-name">
+              <%=item.name %>
+            </p>
+            <p class="item-box-price">
+              $<%=item.price %> 円
+            </p>
+          <%end%>
         </div>
-        <p class="item-box-name">
-          頭
-        </p>
-        <p class="item-box-price">
-         $4,900円
-        </p>
-      </div>
-      <div class="item-box">
-        <div class="item-box-pic">
-          <%= image_tag 'IMG_0526.jpg' %>
-        </div>
-        <p class="item-box-name">
-          pb
-        </p>
-        <p class="item-box-price">
-         $4,900円
-        </p>
-      </div>
-      <div class="item-box">
-        <div class="item-box-pic">
-          <%= image_tag 'IMG_0526.jpg' %>
-        </div>
-        <p class="item-box-name">
-          pb
-        </p>
-        <p class="item-box-price">
-         $4,900円
-        </p>
-      </div>
-      <div class="item-box">
-        <div class="item-box-pic">
-          <%= image_tag 'IMG_0526.jpg' %>
-        </div>
-        <p class="item-box-name">
-          pb
-        </p>
-        <p class="item-box-price">
-         $4,900円
-        </p>
-      </div>
-      <div class="item-box">
-        <div class="item-box-pic">
-          <%= image_tag 'IMG_0526.jpg' %>
-        </div>
-        <p class="item-box-name">
-          pb
-        </p>
-        <p class="item-box-price">
-         $4,900円
-        </p>
-      </div>
-      <div class="item-box">
-        <div class="item-box-pic">
-          <%= image_tag 'IMG_0526.jpg' %>
-        </div>
-        <p class="item-box-name">
-          pb
-        </p>
-        <p class="item-box-price">
-         $4,900円
-        </p>
-      </div>
+      <%end%>
     </div>
   </div>
 </div>
