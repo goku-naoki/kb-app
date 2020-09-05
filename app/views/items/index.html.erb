@@ -5,15 +5,17 @@
     </div>
     <div class="items-list">
       <div class="item-box">
-        <div class="item-box-pic">
-          <%= image_tag 'IMG_0526.jpg' %>
-        </div>
-        <p class="item-box-name">
-          頭
-        </p>
-        <p class="item-box-price">
-         $4,900円
-        </p>
+        <%=link_to item_path(1) do%>
+          <div class="item-box-pic">
+            <%= image_tag 'IMG_0526.jpg' %>
+          </div>
+          <p class="item-box-name">
+            頭
+          </p>
+          <p class="item-box-price">
+          $4,900円
+          </p>
+        <%end%>
       </div>
       <div class="item-box">
         <div class="item-box-pic">
