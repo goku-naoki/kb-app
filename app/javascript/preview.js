@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   let imageInputs=Array.from(document.getElementsByClassName('image-field'));
   let imageLength=0;
   let editBtns=[]
-  let index=0
-  let imageSrc=""
   const icon=document.getElementById('image-icon')
   let newtarget=""
   
@@ -29,7 +27,6 @@ document.addEventListener('DOMContentLoaded',()=>{
       once: true  //イベント発火回数を制限しないと下のクリックと二回怒る
     })
   }
- 
   const preview=(imageSrc,index)=>{
     // imageInputs=Array.from(document.getElementsByClassName('image-field'));
     // imageLength=Array.from(document.getElementsByClassName('create-item-form-image-preview-box')).length;
@@ -37,6 +34,10 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     editBtns=Array.from(document.getElementsByClassName('image-edit'))
    
+    const imagePreview=document.getElementById(`image-${index}`)
+    if(imagePreview != null){
+      imagePreview.setAttribute('src',imageSrc)
+    }else{
   
     
     const createImage=(src,index)=>{
@@ -70,33 +71,6 @@ document.addEventListener('DOMContentLoaded',()=>{
               
             }//むやみにretur false書けるとpreviewが読み込まれずうまく動かない
 
-  
-    // if(editBtns !=null){
-    //   editBtns.forEach((edit)=>{
-    //    edit.addEventListener('click',(event)=>{
-    //      const target =event.target.parentNode.getAttribute('data-index')
-    //      const newtarget=document.getElementById(`image-${target}-input`)
-    //      console.log(newtarget)
-    //       newtarget.click()
-    //          })
-    //      })
-    
-    //  }
-
-    //  const icon=document.getElementById('image-icon')
-    //     icon.addEventListener('click',()=>{
-    //       const target =imageInputs[imageInputs.length-1]
-    //       const targetIndex=Number(target.getAttribute('data-index'))
-    //       const newtarget=document.getElementById(`image-${targetIndex}-input`)
-    //       console.log(target)
-    //       if(imageLength!=3){
-    //         newtarget.click()
-    //         }
-    //     })
-    
-    
-    // imageInputs.forEach((imageInput)=>{
-
        iconClick()
        const nextTarget=document.getElementById(`image-${index + 1}-input`)
        
@@ -108,6 +82,7 @@ document.addEventListener('DOMContentLoaded',()=>{
           const editItem=document.getElementById(`image-${index}`)
           preview(imageSrc,index)     
         }) 
+      }
   }
 
    
@@ -117,12 +92,9 @@ document.addEventListener('DOMContentLoaded',()=>{
   const firstTarget=document.getElementById("image-0-input")
   firstTarget.addEventListener('change',(event)=>{
     const file=event.target.files[0]
-    imageSrc=URL.createObjectURL(file)
-    index=Number(event.target.getAttribute('data-index'))
+    const imageSrc=URL.createObjectURL(file)
+    const index=Number(event.target.getAttribute('data-index'))
     console.log('change!!')
     preview(imageSrc,index);
   });
-
-
-  
 })
