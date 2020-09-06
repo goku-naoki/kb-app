@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     // imageLength=Array.from(document.getElementsByClassName('create-item-form-image-preview-box')).length;
     //clickイベントで更新されるから必要ない上
 
-    editBtns=Array.from(document.getElementsByClassName('image-edit'))
+    // editBtns=Array.from(document.getElementsByClassName('image-edit'))
    
     const imagePreview=document.getElementById(`image-${index}`)
     if(imagePreview != null){
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             <div class="image-box">
               <img id="image-${index}" src="${src}">
             </div>
-          <p class="image-edit" id="image-edit">edit</p>
+          <p class="image-edit" id="image-${index}-edit">edit</p>
           </div>
         `
           return imageBox
@@ -74,39 +74,19 @@ document.addEventListener('DOMContentLoaded',()=>{
               
             }//むやみにretur false書けるとpreviewが読み込まれずうまく動かない
 
-
-       iconClick()
-
-         editBtns=Array.from(document.getElementsByClassName(`image-edit`))
-       
-        editBtns.forEach(edit => {
-          console.log(edit)
-          if(edit !=null){
-          edit.addEventListener('click',(event)=>{
-            console.log('h0gechange')
-            const editIndex=event.target.parentNode.getAttribute('data-index')
-            const target=document.getElementById(`image-${editIndex}-input`)
-             target.click()
-             target.addEventListener('change',(event)=>{
-            
-              index=Number(event.target.getAttribute('data-index'))
-              const file=event.target.files[0]
-              imageSrc=URL.createObjectURL(file)
-            
-              preview(imageSrc,index)     
-            }) 
-
-
-          },{
-           
-          })
-        }
-        });
-
-       
-
-       
-       const nextTarget=document.getElementById(`image-${index + 1}-input`)
+     
+          icon.addEventListener('click',()=>{
+              //この二つをさらに読みこます
+              imageInputs=Array.from(document.getElementsByClassName('image-field'));
+              imageLength=Array.from(document.getElementsByClassName('create-item-form-image-preview-box')).length;
+              let target =imageInputs[imageInputs.length-1]
+              // const targetIndex=Number(target.getAttribute('data-index'))
+              let targetIndex=Number(target.getAttribute('data-index'))
+              newtarget=document.getElementById(`image-${targetIndex}-input`)
+              console.log(target)
+              if(imageLength!=3){
+                newtarget.click()
+                const nextTarget=document.getElementById(`image-${index + 1}-input`)
        
         nextTarget.addEventListener('change',(event)=>{
           console.log(nextTarget)
@@ -116,6 +96,11 @@ document.addEventListener('DOMContentLoaded',()=>{
           const editItem=document.getElementById(`image-${index}`)
           preview(imageSrc,index)     
         }) 
+                }
+              
+            },{
+              once: true  //イベント発火回数を制限しないと下のクリックと二回怒る
+            })
       }
   }
 
@@ -132,5 +117,22 @@ document.addEventListener('DOMContentLoaded',()=>{
     preview(imageSrc,index);
   },{
     once: true  //イベント発火回数を制限しないと下のクリックと二回怒る
+  })
+
+  window.addEventListener('click',(event)=>{
+    if(event.srcElement.classList.contains('image-edit')){
+      console.log(event)
+      const editIndex=Number(event.target.parentNode.getAttribute('data-index'))
+      const editTarget=document.getElementById(`image-${editIndex}-input`)
+      editTarget.click()
+
+      editTarget.addEventListener('change',(event)=>{
+        console.log('aftercliiig')
+        index=Number(event.target.getAttribute('data-index'))
+        const file=event.target.files[0]
+        imageSrc=URL.createObjectURL(file)
+        preview(imageSrc,index)
+        }) 
+    }
   })
 })
