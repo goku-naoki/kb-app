@@ -1,1 +1,31 @@
-ddddddd
+<div id="item-detail">
+  <div class="container">
+    <div class="item-detail-header">
+      <h2>Item Detail</h2>
+    </div>
+    <div class="item-detail-box">
+      <div class="item-detail-box-left">
+        <div class="item-detail-box-left-image">
+          <%= image_tag @item.images[0] %>
+        </div>
+      </div>
+      <div class="item-detail-box-right">
+        <p class="item-detail-box-right-name">
+          <%=@item.name%>
+        </p>
+        <p class="item-detail-box-right-price">
+          ¥<%=@item.price%>円
+        </p>
+        <div class="item-detail-box-right-cart">
+          カートに入れる
+        </div>
+        <div class="item-detail-box-right-detail">
+          <%=@item.detail%>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+ 

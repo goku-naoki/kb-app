@@ -36,6 +36,8 @@
  }
  
 
+
+ //商品出品
  #create-item{
   padding-top: 80px;
   /* height: calc(100vh - 80px - 60px);
@@ -135,3 +137,55 @@
     border-radius: 10px;;
   }
 }
+
+
+//商品詳細
+
+#item-detail{
+  padding-top: 80px;
+  /* height: calc(100vh - 80px - 60px);
+  overflow:scroll; */
+ }
+ 
+ .item-detail-header{
+   margin-bottom:30px;
+  
+ }
+ .item-detail-box{
+   width:100%;
+   display:flex;
+   &-left{
+     width:60%;
+     margin-right:40px;
+     &-image{
+       width:100%;
+       img{
+         width:100%;
+         height:auto;
+         object-fit:cover;
+       }
+     }
+   }
+   &-right{
+     width:40%;
+     &-name{
+       font-weight:bold;
+       font-size:1.6rem;
+       margin-bottom:10px;
+     }
+     &-price{
+      margin-bottom:20px;
+     }
+     &-cart{
+       width:100%;
+       height:40px;
+       padding:12px 0;
+       color:white;
+       background: black;
+       margin-bottom:30px;
+       text-align:center;
+       vertical-align: middle;
+
+     }
+   }
+ }

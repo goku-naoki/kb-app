@@ -1,28 +1,31 @@
-<div id="create-item">
+<div id="item-detail">
   <div class="container">
-    <div class="create-item-header">
-      <h2>Create Item</h2>
+    <div class="item-detail-header">
+      <h2>Item Detail</h2>
     </div>
-    <div class="create-item-form">
-      <%= form_with model: @item , local: true do |f| %>
-        <div class="create-item-form-image">
-          <div class="create-item-form-image-preview">
-          </div>
-          <div class="create-item-form-image-chose">
-            <%= f.file_field :image %>
-          </div>
+    <div class="item-detail-box">
+      <div class="item-detail-box-left">
+        <div class="item-detail-box-left-image">
+          <%= image_tag @item.images[0] %>
         </div>
-        <div class="create-item-form-name">
-          <%= f.text_field :name %>
+      </div>
+      <div class="item-detail-box-right">
+        <p class="item-detail-box-right-name">
+          <%=@item.name%>
+        </p>
+        <p class="item-detail-box-right-price">
+          <%=@item.name%>
+        </p>
+        <div class="item-detail-box-right-cart">
+          カートに入れる
         </div>
-        <div class="create-item-form-detail">
-          <%= f.text_area :detail %>
+        <div class="item-detail-box-right-detail">
+          <%=@item.detail%>
         </div>
-        <div class="create-item-form-price">
-          <%= f.text_field :price %>
-        </div>
+      </div>
 
-      <% end %>
     </div>
   </div>
 </div>
+
+ 
