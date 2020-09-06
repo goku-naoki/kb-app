@@ -5,9 +5,11 @@
     </div>
     <div class="item-detail-box">
       <div class="item-detail-box-left">
-        <div class="item-detail-box-left-image">
-          <%= image_tag @item.images[0] %>
-        </div>
+        <% @item.images.each do |image|%>
+          <div class="item-detail-box-left-image">
+            <%= image_tag image %>
+          </div>
+        <%end%>
       </div>
       <div class="item-detail-box-right">
         <p class="item-detail-box-right-name">
