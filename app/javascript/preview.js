@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded',()=>{
         imageInputs=Array.from(document.getElementsByClassName('image-field'));
         imageLength=Array.from(document.getElementsByClassName('create-item-form-image-preview-box')).length;
         let target =imageInputs[imageInputs.length-1]
-
+        console.log(imageLength)
           if(imageLength!=3){
             console.log(target)
-            target.click()
+            // target.click()
             changeInput(target)
           } 
         },{
@@ -73,7 +73,9 @@ document.addEventListener('DOMContentLoaded',()=>{
                 <div class="image-box">
                   <img id="image-${index}" src="${src}">
                 </div>
-              <p class="image-edit" id="image-${index}-edit">edit</p>
+              <label for="image-${index}-input">
+                <p class="image-edit" >edit</p>
+              </label>
               </div>
             `
               return imageBox
@@ -81,6 +83,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
           const createInput=(index)=>{  //input要素
             const imageInput=`
+           
             <input name="item[images][]" data-index="${index}" class="image-field" type="file" id="image-${index}-input" >
             `
             return imageInput
@@ -89,12 +92,16 @@ document.addEventListener('DOMContentLoaded',()=>{
           const imageBox=createImage(imageSrc,index);
           const previewBox=document.getElementById('image-preview')
           previewBox.insertAdjacentHTML('beforeend', imageBox);
+          const nextIndex=index + 1
+          const imageLabel=document.getElementById('image-label')
+          imageLabel.setAttribute('for',`image-${nextIndex}-input`)
             if(imageLength<2){  //ここでif文かけるといい感じ。上だと３枚目が出ない。
               console.log(imageLength)
-              const nextIndex=index + 1
+           
               const imageInput=createInput(nextIndex)
               const inputBox=document.getElementById('input-box')
               inputBox.insertAdjacentHTML('beforeend', imageInput);
+              
             }
           iconClick()
         }
@@ -103,5 +110,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     //全ての始まりはここ
 
     iconClick()
-    editClick()
+   
+    // editClick()
 })
