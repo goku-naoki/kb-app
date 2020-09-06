@@ -7,10 +7,15 @@ document.addEventListener('DOMContentLoaded',()=>{
   
   
     function changeInput(targetInput){ 
-      targetInput.addEventListener('change',(event)=>{
+
+      if(targetInput.addEventListener('change',(event)=>{
         const thisEvent=event
         prepareImageField(thisEvent)
-        }) 
+        })){
+          console.log("hoge")
+        }else{
+          iconClick()
+        }
     }
 
     function iconClick(){
@@ -18,7 +23,9 @@ document.addEventListener('DOMContentLoaded',()=>{
         imageInputs=Array.from(document.getElementsByClassName('image-field'));
         imageLength=Array.from(document.getElementsByClassName('create-item-form-image-preview-box')).length;
         let target =imageInputs[imageInputs.length-1]
+
           if(imageLength!=3){
+            console.log(target)
             target.click()
             changeInput(target)
           } 
@@ -26,16 +33,35 @@ document.addEventListener('DOMContentLoaded',()=>{
           once: true  //イベント発火回数を制限しないと下のクリックと二回怒る
         })
       } 
+    function editClick(){
+      window.addEventListener('click',(event)=>{
+        if(event.srcElement.classList.contains('image-edit')){
+          console.log(event)
+          const editIndex=Number(event.target.parentNode.getAttribute('data-index'))
+          const editTarget=document.getElementById(`image-${editIndex}-input`)
+          editTarget.click()
+          changeInput(editTarget)
+        }
+      },{
+  
+      })
+    }
 
     function prepareImageField(event){
       const index=Number(event.target.getAttribute('data-index'))
-      const file=event.target.files[0]
-      const imageSrc=URL.createObjectURL(file)
-      preview(imageSrc,index)
+      if(event.target.files.length==0){
+        // editClick()
+      }else{
+        const file=event.target.files[0]
+        const imageSrc=URL.createObjectURL(file)
+        preview(imageSrc,index)
+      }
       }
 
 
     const preview=(imageSrc,index)=>{
+
+      
       const imagePreview=document.getElementById(`image-${index}`)
       if(imagePreview != null){
         imagePreview.setAttribute('src',imageSrc)
@@ -76,27 +102,6 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     //全ての始まりはここ
 
-    const firstTarget=document.getElementById("image-0-input")
-    icon.addEventListener('click',()=>{
-      firstTarget.click();
-    },{
-      once: true
-    })
-
-    firstTarget.addEventListener('change',(event)=>{
-      const thisEvent=event
-      prepareImageField(thisEvent)
-    },{
-      once: true  //イベント発火回数を制限しないと下のクリックと二回怒る
-    })
-
-    window.addEventListener('click',(event)=>{
-      if(event.srcElement.classList.contains('image-edit')){
-        console.log(event)
-        const editIndex=Number(event.target.parentNode.getAttribute('data-index'))
-        const editTarget=document.getElementById(`image-${editIndex}-input`)
-        editTarget.click()
-        changeInput(editTarget)
-      }
-    })
+    iconClick()
+    editClick()
 })
