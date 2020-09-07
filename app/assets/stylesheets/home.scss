@@ -15,25 +15,30 @@
 .wrapper-img{
   text-align:center;
   width:100%;
+  max-width:1000px;
+  margin: 0 auto;
   margin-bottom:60px;
   
 }
 .wrapper-img img{
   width:100%;
-  max-width:1000px;
+ 
   object-fit: cover;
   height:500px;
 
 }
 
 
+
 .intro-phots{
+  width:100%;
+  max-width:1000px;
+  margin:0 auto;
   padding-top:1%;
   display:flex;
   flex-wrap:wrap;
   justify-content: space-around;
-  width:99%;
-  margin:0 auto;
+ 
 }
 
 .intro-photo{
