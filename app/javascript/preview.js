@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded',()=>{
 
   let imageInputs=Array.from(document.getElementsByClassName('image-field'));
+  let deleteBtns=Array.from(document.getElementsByClassName('image-delete'));
   let imageLength=0;
   let editBtns=[]
   const icon=document.getElementById('image-icon')
@@ -20,6 +21,22 @@ document.addEventListener('DOMContentLoaded',()=>{
           })
         }
       } 
+
+      function deleteItem(){
+        deleteBtns=Array.from(document.getElementsByClassName('image-delete'));
+        deleteBtns.forEach((deleteBtn)=>{
+          deleteBtn.addEventListener('click',(event)=>{
+            const index=Number(event.target.parentNode.parentNode.getAttribute('data-index'))
+            console.log(index)
+            event.target.parentNode.parentNode.remove()
+            const deleteTarget=document.getElementById(`image-${index}-input`)
+            console.log(deleteTarget)
+            deleteTarget.remove()
+          })
+        })
+
+
+      }
     
       const createImage=(src,index)=>{ //imageの箱
         const imageBox=`
@@ -67,6 +84,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 
               }      
           }
+        deleteItem()
         triggerInput()  //以前までは一個上のif文内にあった
     }
     //全ての始まりはここ
