@@ -22,8 +22,6 @@ document.addEventListener("turbolinks:load",()=>{
             }else{
               alert('失敗')
             }
-
-
           }
       })
     })
