@@ -183,6 +183,7 @@
    }
    &-right{
      width:40%;
+     max-width:485px;
      position:fixed; //どこでも画面基準になる説
      right:5%;
      &-name{
@@ -199,6 +200,17 @@
        padding:12px 0;
        color:white;
        background: black;
+       margin-bottom:30px;
+       text-align:center;
+       vertical-align: middle;
+     }
+     &-cart-in{
+      width:100%;
+      height:40px;
+      padding:12px 0;
+       background:#c8c8c8;
+       opacity: .6;
+       color:white;
        margin-bottom:30px;
        text-align:center;
        vertical-align: middle;

@@ -2,12 +2,18 @@ class ItemsController < ApplicationController
 
   def index
     @items=Item.all
+    session[:mangoku]=@items[0]
   end 
+
   def show
     @item=Item.find(params[:id])
+    if @cart_in_this=@item.cart_items.find_by(cart_id: session['cart_id'])
+      @cart_in_this
+    end
   end
 
   def new
+  
     @item=Item.new
   end
 

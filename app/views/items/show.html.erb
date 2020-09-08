@@ -18,9 +18,15 @@
         <p class="item-detail-box-right-price">
           ¥<%=@item.price%>円
         </p>
-        <div class="item-detail-box-right-cart" id="cart-btn">
-          カートに入れる
-        </div>
+        <%if @cart_in_this.present?%>
+          <div class="item-detail-box-right-cart-in">
+            カートに入っています
+          </div>
+        <%else%>
+          <div class="item-detail-box-right-cart" id="cart-btn" data-item-id=<%=@item.id%>  >
+              カートに入れる
+          </div> 
+        <%end%>
         <div class="item-detail-box-right-detail">
           <%=@item.detail%>
         </div>
