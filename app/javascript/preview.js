@@ -38,15 +38,15 @@ document.addEventListener('DOMContentLoaded',()=>{
     
       const createImage=(src,index)=>{ //imageの箱
         const imageBox=`
-          <div class="create-item-form-image-preview-box" id="preview-${index}-box" data-index="${index}">
+          <div class="create-item-form-image-preview-box" data-index="${index}">
             <div class="image-box">
               <img id="image-${index}" src="${src}">
             </div>
-            <div class="create-item-form-image-preview-option">
+            <div class="create-item-form-image-preview-box-option">
               <label for="image-${index}-input">
                 <p class="image-edit">edit</p>
               </label>
-              <p class="image-delete">削除</p>
+              <p class="image-delete">delete</p>
             </div>
           </div>
         `
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
       const createInput=(index)=>{  //input要素
         const imageInput=`
-          <input name="item[images][]" data-index="${index}" class="image-field" type="file" id="image-${index}-input" >
+          <input name="item[images][]" data-index="${index}" class="image-field" type="file" id="image-${index}-input" style="display:none;" >
         `
         return imageInput
         }
