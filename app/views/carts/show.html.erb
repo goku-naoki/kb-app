@@ -30,9 +30,10 @@
             </ul>
           </div>
           <div class="cart-box-right">
-            <div class="cart-box-right-confirm">
-              購入へ進む
-            </div>
+           
+             <div  class="cart-box-right-confirm"><%=link_to '購入へ進む',new_cart_order_path(current_cart.id)%></div>
+            
+         
           </div>
         <%else%>
           <div class="cart-box-nothing">

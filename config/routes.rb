@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   resources :barber, only: [:index]
   resources :art, only: [:index]
   resources :items, only: [:index,:show,:new,:create]
-  resources :carts, only: [:show]
+  resources :carts, only: [:show] do
+    resources :orders, only: [:new,:create]
+    
+
+  end
 
   post '/add_item' => 'carts#add_item'
   post '/update_item' => 'carts#update_item'

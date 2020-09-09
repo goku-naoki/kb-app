@@ -1,0 +1,22 @@
+<div id="order-new">
+  <div class="container">
+    <div class="order-header">
+      <p>お届け先情報</p>
+    </div>
+    <div class="order-form">
+      <%= form_with url:items_path, model: @order ,method: :post,local: true do |f| %>
+        <div class="order-form-name">
+          <div class="order-form-name-left">
+            <%= f.text_field :name '%>
+          </div>
+          <div class="order-form-name-right">
+            <%= f.text_field :name '%>
+          </div>
+        </div>
+       
+      <% end %>
+    </div>
+  </div>
+</div>
+
+ 
