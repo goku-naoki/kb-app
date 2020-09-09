@@ -14,5 +14,9 @@ Rails.application.routes.draw do
   post '/update_item' => 'carts#update_item'
   delete '/delete_item' => 'carts#delete_item'
 
+  get '/order_confirmation' => 'orders#order_confirmation'
+  get '/order_pay' => 'orders#order_pay'
+
+
 
 end

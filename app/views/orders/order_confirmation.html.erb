@@ -1,0 +1,115 @@
+<div id="confirm">
+  <div class="container">
+    <div class="confirm-header">
+      <p>ご注文内容の確認</p>
+    </div>
+    <div class="confirm-box">
+      <div class="confirm-box-order">
+        <p class="header-p">お届け先</p>
+        <div class="confirm-box-order-detail">
+          <div class="confirm-box-order-detail-address">
+            <div class="confirm-box-order-detail-address-left">         
+              ご住所
+            </div>
+            <div class="confirm-box-order-detail-address-right">
+              〒<%=@postal+' ' +@prefecture+@city+@addresses+@building%>
+            </div>
+          </div>
+          <div class="confirm-box-order-detail-name">
+            <div class="confirm-box-order-detail-name-left">
+              お名前
+            </div>
+            <div class="confirm-box-order-detail-name-right">
+              <%=@last_name+@first_name+' ' +@last_name_kana+@first_name_kana%>
+            </div>  
+          </div>
+          <div class="confirm-box-order-detail-phone">
+            <div class="confirm-box-order-detail-phone-left">
+              電話番号
+            </div>
+            <div class="confirm-box-order-detail-phone-right">
+               <%=@phone_number%>
+            </div>
+          </div>
+          <div class="confirm-box-order-detail-email">
+            <div class="confirm-box-order-detail-email-left">
+              メールアドレス
+            </div>
+            <div class="confirm-box-order-detail-email-right">
+              <%=@email%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="confirm-box-order-item">
+        <p class="header-p">ご注文商品一覧</p>
+        <ul class="cart-box-left-list">
+          <%@cart_items.each do |cart_item| %>
+            <li class="cart-box-left-list-detail">
+              <div class="cart-box-left-list-detail-left">
+                <div class="cart-box-left-list-detail-left-image">
+                  <%= image_tag cart_item.item.images[0] %>
+                </div>
+              </div>
+              <div class="cart-box-left-list-detail-right">
+                <p class="cart-box-left-list-detail-right-name">
+                  <%=cart_item.item.name%>
+                </p>
+                <p class="cart-box-left-list-detail-right-price">
+                  $<%=cart_item.item.price%>
+                </p>
+              </div>
+            </li>
+          <%end%>
+        </ul>
+      </div>
+      <div class="confirm-box-pay-item">
+        <p class="header-p">カード情報の入力</p>
+        <div class="confirm-box-pay-item-form">
+          <%= form_with  url: order_pay ,method: :post,local: true do |f| %>
+            <div class="confirm-box-pay-item-form-amount">
+              <div class="confirm-box-pay-item-detail-amount-left">         
+                決済金額
+              </div>
+              <div class="confirm-box-pay-item-form-amount-right">
+                 ¥<%=@amount%>
+              </div>
+            </div>
+            <div class="confirm-box-pay-item-form-number">
+              <div class="confirm-box-pay-item-detail-address-left">         
+                カード番号
+              </div>
+              <div class="confirm-box-pay-item-form-number-right">
+                 <%= f.text_field :number,placeholder:"カード番号" %>
+              </div>
+            </div>
+            <div class="confirm-box-pay-item-form-exp">
+              <div class="confirm-box-pay-item-detail-exp-left">
+                有効期限
+              </div>
+              <div class="confirm-box-pay-item-form-exp-right">
+                <%= f.select :exp_month, 1..12 %>
+                <p>月/</p>
+                <%= f.select :exp_year, 20..25 %>
+                <p>年/</p>
+              </div>  
+            </div>
+            <div class="confirm-box-pay-item-form-secure">
+              <div class="confirm-box-order-detail-seccure-left">
+                セキュリティーコード
+              </div>
+              <div class="confirm-box-pay-item-form-secure-right">
+                <%= f.text_field :cvc,placeholder:"CVC" %>
+              </div>
+            </div>
+            <div class="confirm-box-pay-item-form-pay">
+              <%= f.submit "購入を確定する" ,class:"pay-btn" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ 
