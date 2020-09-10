@@ -26,14 +26,21 @@ class OrdersController < ApplicationController
     @phone_number=session[:mgk]['phone_number']
     @email=session[:mgk]['email']
     @cart_items=Cart.find(session[:mgk]['cart_id']).cart_items
-    @amount=0
+    session[:amount]=0
+
     @cart_items.each do |cart_item|
-      @amount +=cart_item.item.price
+      session[:amount] +=cart_item.item.price
     end
 
   end
 
   def order_pay
+    @order_info=OrderInfo.new(session[:mgk])
+    if @order_info.valid?
+       @order_info.save
+       pay
+
+    end
 
   end
 
@@ -56,5 +63,14 @@ class OrdersController < ApplicationController
                   :email,
                   :cart_id
                 )
-  end
+    end
+
+    def pay
+      Payjp.api_key ="sk_test_242fc517b65b2f9898303b6d"
+      Payjp::Charge.create(
+        amount: session[:amount],
+        card: params[:token],
+        currency: 'jpy'
+      )
+      end
 end
