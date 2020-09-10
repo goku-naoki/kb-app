@@ -66,7 +66,7 @@
       <div class="confirm-box-pay-item">
         <p class="header-p">カード情報の入力</p>
         <div class="confirm-box-pay-item-form">
-          <%= form_with  url: order_pay_path ,method: :post,local: true do |f| %>
+          <%= form_with  url: order_pay_path ,method: :post,id:'pay-form',local: true do |f| %>
             <div class="confirm-box-pay-item-form-amount">
               <div class="confirm-box-pay-item-detail-amount-left">         
                 決済金額
