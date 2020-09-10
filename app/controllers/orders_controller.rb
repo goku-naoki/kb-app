@@ -38,7 +38,11 @@ class OrdersController < ApplicationController
     @order_info=OrderInfo.new(session[:mgk])
     if @order_info.valid?
        @order_info.save
-       pay
+       binding.pry
+         pay
+        current_cart.destroy
+        session.clear
+       
 
     end
 

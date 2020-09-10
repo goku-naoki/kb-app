@@ -11,7 +11,6 @@ class OrderInfo
     
     cart_items=Cart.find(cart_id).cart_items
     cart_items.each do |cart_item|
-      binding.pry
       OrderItem.create(order_id:order.id,quantity:cart_item.quantity,item_id:cart_item.item_id)
     end
   end
