@@ -5,6 +5,8 @@
     </div>
     <div class="order-form">
       <%= form_with  url: cart_orders_path(current_cart.id) ,method: :post,local: true do |f| %>
+      <%# <%= render 'shared/error_messages', model:@order_info %> 
+       <%= render 'shared/error_messages'%>
         <div class="order-form-name">
           <div class="order-form-name-left">
             <%= f.text_field :first_name,placeholder:"Last Name/性" %>

@@ -1,0 +1,9 @@
+<% unless flash[:danger].nil? %>
+<div id="error_explanation">
+  <ul>
+    <% flash[:danger].each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>

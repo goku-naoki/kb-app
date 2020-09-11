@@ -42,7 +42,10 @@ window.addEventListener("turbolinks:load", () => {
           sendWithoutCardInfo()
         } else {
           // window.alert('購入処理に失敗しました。\nお手数ですが最初からやり直してください。');
-          sendWithoutCardInfo()
+          // sendWithoutCardInfo()
+          alert('カードの値が不正です')
+          const btn=Array.from(document.getElementsByClassName('pay-btn'))[0]
+          btn.disabled=false;
         }
       });
     });

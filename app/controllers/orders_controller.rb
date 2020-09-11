@@ -6,10 +6,14 @@ class OrdersController < ApplicationController
 
   def create
     @order_info=OrderInfo.new(order_params)
-    session[:mgk]=@order_info
-   
-    # @order_info.save
-    redirect_to  order_confirmation_path
+    if @order_info.valid?
+      session[:mgk]=@order_info
+      redirect_to  order_confirmation_path
+    else
+      binding.pry
+      flash[:danger] =  @order_info.errors.full_messages
+      redirect_to action: :new
+    end
    
   end
 

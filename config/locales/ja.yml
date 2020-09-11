@@ -1,0 +1,16 @@
+ja:
+ activemodel:
+   attributes:
+     order_info:
+       last_name: 性
+       first_name: 名
+       last_name_kana: セイ
+       first_name_kana: メイ
+       postal_code: 郵便番号
+       prefecture_id: 都道府県
+       city: 地区町村
+       addresses: 番地
+       phone_number: 電話番号
+       email: メールアドレス
+
+       
