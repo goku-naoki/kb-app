@@ -1,12 +1,26 @@
-<div id="footer">
-  <div class="footer">
-    <div class="footer-right">
-      <p>© 2020 KB</p>
+<div  id="header" >
+  <div class="header" > 
+    <div class="header-left">
+      <h1><%=link_to 'KB',root_path%></h1>
     </div>
-    <div class="footer-middle">
-      <%=link_to '#' do %>
-        <i class="fa fa-instagram fa-3x" id="image-icon" ></i>
-      <%end%>
-    </div>
+    <ul class="header-right">
+      <li><%=link_to 'Bio',profiles_path %></li>
+      <li><%=link_to 'Barber',barber_index_path %></li>
+      <li><%=link_to 'Art',art_index_path %></li>
+      <li><%=link_to 'Shop',items_path %></li>
+      <li><%=link_to 'cart',cart_path(current_cart.id) %></li>
+    </ul>
+     <div id="hamburger">
+      <span></span>
+     </div>
+     <div class="header--right-sp">
+       <ul>
+        <li><%=link_to 'Bio',profiles_path %></li>
+        <li><%=link_to 'Barber',barber_index_path %></li>
+        <li><%=link_to 'Art',art_index_path %></li>
+        <li><%=link_to 'Shop',items_path %></li>
+        <li><%=link_to 'cart',cart_path(current_cart.id) %></li>
+       </ul>
+     </div>
   </div>
 </div>

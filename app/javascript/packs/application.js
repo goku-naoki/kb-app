@@ -11,6 +11,7 @@ require("../preview")
 require("../cart")
 require("../deleteCart")
 require("../pay")
+require("../nav")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
