@@ -2,9 +2,11 @@
 document.addEventListener("turbolinks:load",()=>{
   const cartBtn=document.getElementById('cart-btn')
   const item_id=Number(cartBtn.getAttribute("data-item-id"))
+  const loader=document.getElementById('overlay')
 
     cartBtn.addEventListener('click',()=>{
-      console.log('hoge')
+     
+      loader.classList.add('fadein-bg')
       const XHR =new XMLHttpRequest();
         const token = document.getElementsByName('csrf-token')[0].content;
         console.log(token)
@@ -21,10 +23,12 @@ document.addEventListener("turbolinks:load",()=>{
         XHR.onload = () => {
         console.log(XHR.status)
           if(XHR.status == 200){
-          console.log('hoge')
-          cartBtn.textContent='カートに入っています'
-          cartBtn.removeAttribute('id')
-          cartBtn.setAttribute("style", "background:#c8c8c8;; opacity: .6;");
+            setTimeout(function(){
+              loader.classList.remove('fadein-bg')
+              cartBtn.textContent='カートに入っています'
+              cartBtn.removeAttribute('id')
+              cartBtn.setAttribute("style", "background:#c8c8c8;; opacity: .6;");
+            },1000)
           }else{
             alert('失敗')
           }

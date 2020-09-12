@@ -3,7 +3,7 @@
     <div class="cart-header">
       <h2>Cart</h2>
     </div>
-      <div class="cart-box">
+      <div class="cart-box" id="cart-box">
         <% if current_cart.cart_items.present?%>
           <div class="cart-box-left">
             <ul class="cart-box-left-list">
@@ -30,16 +30,17 @@
             </ul>
           </div>
           <div class="cart-box-right">
-           
-             <div  class="cart-box-right-confirm"><%=link_to '購入へ進む',new_cart_order_path(current_cart.id)%></div>
-            
-         
+            <div  class="cart-box-right-confirm" id="cart-confirm"><%=link_to '購入へ進む',new_cart_order_path(current_cart.id)%></div>
           </div>
         <%else%>
           <div class="cart-box-nothing">
-            <p>No Item</p>
+            <p class="cart-box-nothing-desc">No Item</p>
+            <p>↓↓↓</p>
+            <p class="cart-box-nothing-link" ><%=link_to ' Go to shop',items_path %></p>
           </div>
         <%end%>
       </div>
   </div>
+   <%# loader %>
+   <%= render "parts/spin"%>
 </div>

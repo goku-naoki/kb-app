@@ -1,8 +1,19 @@
 document.addEventListener("turbolinks:load",()=>{
-  const deleteCartBtns=Array.from(document.getElementsByClassName("cart-box-left-list-detail-right-delete"));
-  console.log(deleteCartBtns)
+  let deleteCartBtns=Array.from(document.getElementsByClassName("cart-box-left-list-detail-right-delete"));
+  const loader=document.getElementById('overlay')
+  const cartBox=document.getElementById('cart-box')
+  
+    const noItem=`
+      <div class="cart-box-nothing">
+      <p class="cart-box-nothing-desc">No Item</p>
+      <p>↓↓↓</p>
+      <p class="cart-box-nothing-link" ><a href="/items">Go to shop</a></p>
+      </div>
+    `
+  
     deleteCartBtns.forEach((deleteBtn)=>{
       deleteBtn.addEventListener('click',(event)=>{
+        loader.classList.add('fadein-bg')
         const XHR =new XMLHttpRequest();
         const token = document.getElementsByName('csrf-token')[0].content;
         const item_id=Number(event.target.getAttribute('data-delete-id'))
@@ -17,7 +28,18 @@ document.addEventListener("turbolinks:load",()=>{
           XHR.onload = () => {
           console.log(XHR.status)
             if(XHR.status == 200){
-              event.target.parentNode.parentNode.remove();
+              setTimeout(()=>{
+                loader.classList.remove('fadein-bg')
+                event.target.parentNode.parentNode.remove();
+                deleteCartBtns=Array.from(document.getElementsByClassName("cart-box-left-list-detail-right-delete"));
+                console.log(deleteCartBtns)
+                if(deleteCartBtns.length==0){
+                  document.getElementById('cart-confirm').remove()
+                  cartBox.insertAdjacentHTML('beforeend', noItem);
+      
+                }
+              },1000)
+             
           
             }else{
               alert('失敗')

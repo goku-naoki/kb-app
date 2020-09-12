@@ -39,6 +39,7 @@ class OrdersController < ApplicationController
   end
 
   def order_pay
+    binding.pry
     @order_info=OrderInfo.new(session[:mgk])
     if @order_info.valid?
        @order_info.save
