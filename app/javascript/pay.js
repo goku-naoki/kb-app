@@ -6,24 +6,50 @@ window.addEventListener("turbolinks:load", () => {
 
   // if (path.includes("items") && path.includes("transactions") && /^([1-9]\d*|0)$/.test(params)) {
     const PAYJP_PK = process.env.PAYJP_PK
+    const loader=document.getElementById('overlay')
     Payjp.setPublicKey("pk_test_a31854acc844849a07138662");
     const form = document.getElementById("pay-form");
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const sendWithoutCardInfo = () => {
+      loader.classList.add('fadein-bg')
+
+      const sendWithoutCardInfo = (card_token) => {
         document.getElementById("number").removeAttribute("name");
         document.getElementById("cvc").removeAttribute("name");
         document.getElementById("exp_month").removeAttribute("name");
         document.getElementById("exp_year").removeAttribute("name");
-        document.getElementById("pay-form").submit();
-        document.getElementById("pay-form").reset();
-      }
-      const formResult = document.getElementById("pay-form");
-      const formData = new FormData(formResult);
 
-      // カード情報の構成や、トークン生成はこちらのリファレンスを参照
-      // https://pay.jp/docs/payjs-v1
+        const XHR =new XMLHttpRequest();
+        const token = document.getElementsByName('csrf-token')[0].content;
+      
+        const fd = new FormData();
+        fd.append('token',card_token);
+     
+        XHR.open("POST", `/order_pay`, true);
+        XHR.setRequestHeader('X-CSRF-Token', token);   //koko!!!  application.contorollerで許可するとsessionだめ
+        XHR.responseType = "json";
+        XHR.send(fd);
+        XHR.onload = () => {
+        console.log(XHR.status)
+          if(XHR.status == 200){
+            setTimeout(function(){
+              loader.classList.remove('fadein-bg')
+              document.getElementById("pay-form").reset();
+            
+            },1000)
+          }else{
+            loader.classList.remove('fadein-bg')
+            alert('失敗')
+          }
+        // document.getElementById("pay-form").submit();
+        
+        }
+      }
+      // const formResult = document.getElementById("pay-form");
+      const formData = new FormData(form);
+
+    
       const card = {
         number: formData.get("number"),
         cvc: formData.get("cvc"),
@@ -36,17 +62,18 @@ window.addEventListener("turbolinks:load", () => {
         console.log(status)
         console.log(response)
         if (status === 200) {
-          // response.idでtokenが取得できます。
-          const token = response.id;
-          const renderDom = document.getElementById("pay-form");
-          // サーバーにトークン情報を送信するために、inputタグをhidden状態で追加します。
-          const tokenObj = `<input value=${token} type="hidden" name='token'>`;
-          renderDom.insertAdjacentHTML("beforeend", tokenObj);
-          sendWithoutCardInfo()
+      
+          const card_token = response.id;
+          // const renderDom = document.getElementById("pay-form");
+          // const tokenObj = `<input value=${token} type="hidden" name='token'>`;
+          // renderDom.insertAdjacentHTML("beforeend", tokenObj);
+          sendWithoutCardInfo(card_token)
         } else {
           // window.alert('購入処理に失敗しました。\nお手数ですが最初からやり直してください。');
           // sendWithoutCardInfo()
+          loader.classList.remove('fadein-bg')
           alert('カードの値が不正です')
+          
           const btn=Array.from(document.getElementsByClassName('pay-btn'))[0]
           btn.disabled=false;
         }

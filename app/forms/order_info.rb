@@ -1,7 +1,7 @@
 class OrderInfo
   include ActiveModel::Model
 
-  attr_accessor :first_name,:last_name,:first_name_kana,:last_name_kana,:postal_code,:prefecture_id,:city,:addresses,:building,:phone_number,:email,:cart_id,:validation_context,:errors
+  attr_accessor :first_name,:last_name,:first_name_kana,:last_name_kana,:postal_code,:prefecture_id,:city,:addresses,:building,:phone_number,:email,:cart_id
   
   validates :first_name,:last_name,:first_name_kana,:last_name_kana,:postal_code,:prefecture_id,:city,:addresses,:phone_number,:email,:cart_id,presence: true
 

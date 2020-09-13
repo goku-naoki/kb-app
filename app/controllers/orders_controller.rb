@@ -39,12 +39,25 @@ class OrdersController < ApplicationController
   end
 
   def order_pay
-    binding.pry
-    @order_info=OrderInfo.new(session[:mgk])
+    value=session[:mgk]
+    @order_info=OrderInfo.new(first_name:value["first_name"], 
+                              last_name:value["last_name"], 
+                              first_name_kana:value["first_name_kana"], 
+                              last_name_kana:value["last_name"],
+                              postal_code:value["postal_code"], 
+                              prefecture_id:value["prefecture_id"],
+                              city:value["city"],
+                              addresses:value["addresses"],
+                              building:value["building"],
+                              phone_number:value["phone_number"],
+                              email:value["email"],
+                              cart_id:value["cart_id"]
+                            )
     if @order_info.valid?
        @order_info.save
-       binding.pry
-         pay
+        pay
+        binding.pry
+     
         current_cart.destroy
         session.clear
        
