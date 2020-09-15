@@ -5,11 +5,12 @@
 margin-bottom:30px;
 }
 .photo-main{
+padding-bottom:60px;
  display:grid;
  grid-template-columns: 1fr 1fr 1fr;
  grid-auto-rows: 200px;
  column-gap: 5px;
- row-gap: 5px;;
+ row-gap: 5px;
 }
 .photo-box{
 transition:1s;
@@ -27,4 +28,19 @@ box-shadow: 5px 5px 5px 10px rgba(0,0,0,0.2);
 width:100%;
 height:100%;
 object-fit: cover;
+}
+
+
+
+@media screen and (max-width:650px) { 
+
+ #photo .photo-main{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 130px;
+    column-gap: 5px;
+    row-gap: 5px;;
+   }
+
+
 }
