@@ -1,0 +1,32 @@
+
+ @media screen and (max-width:650px) { 
+  .items-list{
+    .item-box{
+      width:40%;
+      &-pic{
+        img{
+          height:100px;
+        }
+      }
+      &-name{
+        font-size:1.2rem;
+        margin-bottom:10px;
+      }
+      &-price{
+       font-size:1.2rem;
+      }
+    }
+  }
+
+ 
+
+  .create-item-form-image-preview-box .image-box img{
+    height: 100px;
+  }
+  .create-item-form-image-preview-box-option{
+    display: block;
+  }
+
+
+
+ }
