@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions'
+  }
+
   root to: "home#index"
   resources :profiles, only: [:index]
   resources :barber, only: [:index]
@@ -6,8 +10,6 @@ Rails.application.routes.draw do
   resources :items, only: [:index,:show,:new,:create]
   resources :carts, only: [:show] do
     resources :orders, only: [:new,:create,:show]
-    
-
   end
 
   post '/add_item' => 'carts#add_item'
