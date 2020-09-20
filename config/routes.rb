@@ -9,12 +9,19 @@ Rails.application.routes.draw do
   resources :art, only: [:index]
   resources :items, only: [:index,:show,:new,:create]
   resources :carts, only: [:show] do
+    collection do
+      post :add_item
+      post :update_item
+      delete :delete_item
+    end
     resources :orders, only: [:new,:create,:show]
   end
 
-  post '/add_item' => 'carts#add_item'
-  post '/update_item' => 'carts#update_item'
-  delete '/delete_item' => 'carts#delete_item'
+
+  # post '/add_item' => 'carts#add_item'
+  #     post '/update_item' => 'carts#update_item'
+  #     delete '/delete_item' => 'carts#delete_item'
+  
 
   get '/order_confirmation' => 'orders#order_confirmation'
   post '/order_pay' => 'orders#order_pay'
