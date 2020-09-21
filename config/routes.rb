@@ -17,11 +17,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:new,:create,:show]
   end
 
-
-  # post '/add_item' => 'carts#add_item'
-  #     post '/update_item' => 'carts#update_item'
-  #     delete '/delete_item' => 'carts#delete_item'
-  
+  resources :admins, only: [:show]
 
   get '/order_confirmation' => 'orders#order_confirmation'
   post '/order_pay' => 'orders#order_pay'

@@ -64,9 +64,6 @@ window.addEventListener("turbolinks:load", () => {
         if (status === 200) {
       
           const card_token = response.id;
-          // const renderDom = document.getElementById("pay-form");
-          // const tokenObj = `<input value=${token} type="hidden" name='token'>`;
-          // renderDom.insertAdjacentHTML("beforeend", tokenObj);
           sendWithoutCardInfo(card_token)
         } else {
           // window.alert('購入処理に失敗しました。\nお手数ですが最初からやり直してください。');
