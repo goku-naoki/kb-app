@@ -8,7 +8,8 @@
       <li><%=link_to 'Barber',barber_index_path %></li>
       <li><%=link_to 'Art',art_index_path %></li>
       <li><%=link_to 'Shop',items_path %></li>
-      <li><%=link_to 'cart',cart_path(current_cart.id) %></li>
+      <li><%=link_to 'Cart',cart_path(current_cart.id) %></li>
+      <li><%=link_to 'Admin',admins_path %></li>
     </ul>
     
      <div id="hamburger" class="nav">
@@ -21,7 +22,7 @@
         <li><%=link_to 'Barber',barber_index_path %></li>
         <li><%=link_to 'Art',art_index_path %></li>
         <li><%=link_to 'Shop',items_path %></li>
-        <li><%=link_to 'cart',cart_path(current_cart.id) %></li>
+        <li><%=link_to 'Cart',cart_path(current_cart.id) %></li>
         <li class="close nav"><span>閉じる</span></li>
        </ul>
      </div>
