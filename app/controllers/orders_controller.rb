@@ -1,5 +1,20 @@
 class OrdersController < ApplicationController
 
+
+  def index
+
+    @orders=Order.all
+    render layout: 'admin' 
+  end
+
+  def show
+    order=Order.find(params[:id])
+    @order_info=order.order_user_info
+    @order_items=order.order_items
+    render layout: 'admin' 
+
+  end
+
   def new
     @order_info=OrderInfo.new
   end

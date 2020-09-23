@@ -1,3 +1,4 @@
+//form*************************
 #order{
   padding-top: 80px;
   /* height: calc(100vh - 80px - 60px);
@@ -146,7 +147,7 @@
  }
 
 
- //購入確認
+ ////購入確認************************
 
 
  #confirm{
@@ -365,3 +366,52 @@
   padding-bottom:10px;
   border-bottom: 1px solid #d5d5d5;
 }
+
+.confirm-box-order-price{
+  width:98%;
+  padding-top:50px;
+  margin-left:auto;
+  span{
+    margin-right:20px;
+  }
+}
+
+
+//購入履歴*************************
+
+#order-index{
+  padding-top: 80px;
+ 
+ }
+ 
+ .order-index-header{
+   margin-bottom:30px;
+ }
+
+
+ .order-index-box{
+   &-info{
+    height: calc(100vh - 132px);
+    overflow: scroll;
+     &-list{
+       height:40px;
+       width:90%;
+       border-bottom: 1px solid #d5d5d5;
+       &-link{
+         width:100%;
+         height:100%;
+         display: flex;
+         align-items: center;
+         &-name{
+          margin-right:20px;
+         }
+         &-address{
+          margin-right:20px;
+         }
+         &-price{
+            margin-right:20px;
+         }
+       }
+     }
+   }
+ }

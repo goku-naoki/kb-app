@@ -14,8 +14,9 @@ Rails.application.routes.draw do
       post :update_item
       delete :delete_item
     end
-    resources :orders, only: [:new,:create,:show]
+    resources :orders, only: [:new,:create]
   end
+  resources :orders, only: [:index,:show]
 
   resources :admins, only: [:index] do
     resources :items, only: [:index,:show]
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
   get '/order_confirmation' => 'orders#order_confirmation'
   post '/order_pay' => 'orders#order_pay'
 
-  get '/admin' => 'admins#show'
+ 
 
 
 
