@@ -42,7 +42,24 @@ class ItemsController < ApplicationController
 
   def edit
     @item=Item.find(params[:id])
+    @label_count=@item.images.length
     render layout: 'admin'
+  end
+  
+  def update
+    @item=Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render  render layout: 'admin', action: :edit
+    end
+  end
+
+  def destroy
+    item=Item.find(params[:id])
+    item.update(hide:true)
+    render json: item
+
   end
 
   private

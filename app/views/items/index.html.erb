@@ -9,19 +9,21 @@
     </div>
     <div class="items-list">
       <% @items.each do |item| %>
-        <div class="item-box">
-          <%=link_to @path do%>
-            <div class="item-box-pic">
-              <%= image_tag item.images[0] %>
-            </div>
-            <p class="item-box-name">
-              <%=item.name %>
-            </p>
-            <p class="item-box-price">
-              $<%=item.price %> 円
-            </p>
-          <%end%>
-        </div>
+        <%unless item.hide==true%>
+          <div class="item-box">
+            <%=link_to @path do%>
+              <div class="item-box-pic">
+                <%= image_tag item.images[0] %>
+              </div>
+              <p class="item-box-name">
+                <%=item.name %>
+              </p>
+              <p class="item-box-price">
+                $<%=item.price %> 円
+              </p>
+            <%end%>
+          </div>
+        <%end%>
       <%end%>
     </div>
   </div>

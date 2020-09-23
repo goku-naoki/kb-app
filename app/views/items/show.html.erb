@@ -26,7 +26,7 @@
             <div class="item-detail-box-right-edit"  data-item-id="<%=@item.id%>">
               <%=link_to '編集する', edit_item_path(@item.id) %>
             </div> 
-            <div class="item-detail-box-right-delete"  data-item-id="<%=@item.id%>">
+            <div class="item-detail-box-right-delete" id="item-delete" data-item-id="<%=@item.id%>">
               削除する
             </div> 
           <%else%>
