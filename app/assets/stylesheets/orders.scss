@@ -362,6 +362,50 @@
   }
 }
 
+
+
+
+#modal-wrapper{
+  width:100%;
+  height:100vh;
+  position:fixed;
+  left:0;
+  top:0;
+  background: rgba(0, 0, 0, .8);   
+  z-index:100;
+  display: none;
+  .modal{
+    width:30%;
+    padding-top:30px;
+    padding-bottom:40px;
+    text-align:center;
+    border-radius: 2%;;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    background:white;
+   
+    &-confirmation{
+      margin-bottom:40px;
+    }
+    &-btn{
+      width:80%;
+      height:36px;
+      margin:0 auto;
+      a{
+        width:100%;
+        height:100%;
+        line-height:36px;
+        display: block;
+        color:white;
+        background:black;
+      }
+    }
+  }
+}
+
+
 .header-p{
   padding-bottom:10px;
   border-bottom: 1px solid #d5d5d5;
@@ -375,6 +419,9 @@
     margin-right:20px;
   }
 }
+
+
+
 
 
 //購入履歴*************************

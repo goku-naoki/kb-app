@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+  before_action :back_to_shop, only: [:order_confirmation,:order_pay]
+  before_action :no_admin, only: [:index,:show]
 
   def index
 
@@ -29,7 +31,6 @@ class OrdersController < ApplicationController
       flash[:danger] =  @order_info.errors.full_messages
       redirect_to action: :new
     end
-   
   end
 
   def order_confirmation
@@ -54,6 +55,7 @@ class OrdersController < ApplicationController
   end
 
   def order_pay
+
     value=session[:mgk]
     @order_info=OrderInfo.new(first_name:value["first_name"], 
                               last_name:value["last_name"], 
@@ -71,12 +73,8 @@ class OrdersController < ApplicationController
     if @order_info.valid?
        @order_info.save
         pay
-        binding.pry
-     
         current_cart.destroy
         session.clear
-       
-
     end
 
   end
@@ -109,5 +107,21 @@ class OrdersController < ApplicationController
         card: params[:token],
         currency: 'jpy'
       )
+      end
+
+
+
+      private
+
+      def back_to_shop
+        unless session[:mgk]
+          redirect_to items_path
+        end
+      end
+
+      def no_admin
+        unless admin_signed_in?
+          redirect_to new_admin_session_path 
+        end
       end
 end

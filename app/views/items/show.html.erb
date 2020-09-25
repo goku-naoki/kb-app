@@ -1,7 +1,7 @@
 <div id="item-detail">
   <div class="container">
     <div class="item-detail-header">
-      <%if current_page?(admin_item_path(current_admin,@item.id))%>
+      <%if admin_signed_in? && current_page?(admin_item_path(current_admin,@item.id))%>
         <h2>商品詳細</h2>
       <%else%>
         <h2>Item Detail</h2>
@@ -22,7 +22,7 @@
         <p class="item-detail-box-right-price">
           ¥<%=@item.price%>円
         </p>
-          <%if current_page?(admin_item_path(current_admin,@item.id)) %>
+          <%if admin_signed_in? && current_page?(admin_item_path(current_admin,@item.id)) %>
             <div class="item-detail-box-right-edit"  data-item-id="<%=@item.id%>">
               <%=link_to '編集する', edit_item_path(@item.id) %>
             </div> 

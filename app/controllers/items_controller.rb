@@ -1,8 +1,11 @@
 class ItemsController < ApplicationController
 
+  before_action :no_admin, except: [:index,:show]
   def index
     @items=Item.all
     if request.fullpath.include?("admin")
+      binding.pry
+      no_admin and return
       @items.each do |item|
         @path=admin_item_path(current_admin.id,item.id)
       end
@@ -21,6 +24,7 @@ class ItemsController < ApplicationController
         @cart_in_this
       end
     if request.fullpath.include?("admin")
+      no_admin and return
       render layout: 'admin'
     end
    
@@ -28,10 +32,12 @@ class ItemsController < ApplicationController
 
   def new
     @item=Item.new
+    @label_count=0
     render layout: 'admin' 
   end
 
   def create
+    
     @item=Item.new(item_params)
     if @item.save
       redirect_to  items_path
@@ -67,4 +73,11 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name,:detail,:price,images:[])
   end
+
+  def no_admin
+    unless admin_signed_in?
+      redirect_to new_admin_session_path 
+    end
+  end
+  
 end

@@ -34,16 +34,15 @@ window.addEventListener("turbolinks:load", () => {
         console.log(XHR.status)
           if(XHR.status == 200){
             setTimeout(function(){
+              const modal=document.getElementById('modal-wrapper')
               loader.classList.remove('fadein-bg')
+              modal.setAttribute('style','display:block;')
               document.getElementById("pay-form").reset();
-            
             },1000)
           }else{
             loader.classList.remove('fadein-bg')
             alert('失敗')
           }
-        // document.getElementById("pay-form").submit();
-        
         }
       }
       // const formResult = document.getElementById("pay-form");

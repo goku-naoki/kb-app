@@ -1,7 +1,7 @@
 <div id="items">
   <div class="container">
     <div class="items-header">
-       <%if current_page?(admin_items_path(current_admin))%>
+       <%if admin_signed_in? && current_page?(admin_items_path(current_admin))%>
        <h2>出品一覧</h2>
         <%else%>
        <h2>Shop</h2>
