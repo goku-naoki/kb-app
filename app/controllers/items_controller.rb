@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
   def index
     @items=Item.all
     if request.fullpath.include?("admin")
-      binding.pry
       no_admin and return
       @items.each do |item|
         @path=admin_item_path(current_admin.id,item.id)

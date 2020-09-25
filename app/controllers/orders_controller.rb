@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
   before_action :no_admin, only: [:index,:show]
 
   def index
-
     @orders=Order.all
     render layout: 'admin' 
   end
@@ -14,7 +13,6 @@ class OrdersController < ApplicationController
     @order_info=order.order_user_info
     @order_items=order.order_items
     render layout: 'admin' 
-
   end
 
   def new
