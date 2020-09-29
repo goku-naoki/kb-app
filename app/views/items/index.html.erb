@@ -8,10 +8,10 @@
         <%end%>
     </div>
     <div class="items-list">
-      <% @items.each do |item| %>
+      <% @items.each_with_index do |item,index| %>
         <%unless item.hide==true%>
           <div class="item-box">
-            <%=link_to @path do%>
+            <%=link_to @paths[index] do%>
               <div class="item-box-pic">
                 <%= image_tag item.images[0] %>
               </div>

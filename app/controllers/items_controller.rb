@@ -5,16 +5,20 @@ class ItemsController < ApplicationController
     @items=Item.all
     if request.fullpath.include?("admin")
       no_admin and return
+      @paths=[]
       @items.each do |item|
-        @path=admin_item_path(current_admin.id,item.id)
+        path=admin_item_path(current_admin.id,item.id)
+        @paths<<path
       end
       render layout: 'admin'
     else
+      @paths=[]
       @items.each do |item|
-        @path=item_path(item.id)
+       path=item_path(item.id)
+       @paths<<path
       end
+    
     end
-  
   end 
 
   def show
