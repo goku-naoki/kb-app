@@ -9,18 +9,18 @@
        <%= render 'shared/error_messages'%>
         <div class="order-form-name">
           <div class="order-form-name-left">
-            <%= f.text_field :first_name,placeholder:"Last Name/性" %>
+            <%= f.text_field :last_name,placeholder:"Last Name/性" %>
           </div>
           <div class="order-form-name-right">
-            <%= f.text_field :last_name,placeholder:"First Name/名前" %>
+            <%= f.text_field :first_name,placeholder:"First Name/名前" %>
           </div>
         </div>
         <div class="order-form-name-kana">
           <div class="order-form-name-kana-left">
-            <%= f.text_field :first_name_kana,placeholder:"Furigana/セイ" %>
+            <%= f.text_field :last_name_kana,placeholder:"Furigana/セイ" %>
           </div>
           <div class="order-form-name-kana-right">
-            <%= f.text_field :last_name_kana,placeholder:"Furigana/メイ" %>
+            <%= f.text_field :first_name_kana,placeholder:"Furigana/メイ" %>
           </div>
         </div>
         <div class="order-form-postal">
