@@ -5,8 +5,13 @@ class ApplicationController < ActionController::Base
   before_action :new_cart
   helper_method :current_cart
 
+  def after_sign_in_path_for(resource_or_scope)
+ 
+      admins_path
+   
+  end
+
   def current_cart 
-  
     if session["cart_id"]
       @cart = Cart.find(session["cart_id"])
     else

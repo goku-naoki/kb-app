@@ -18,8 +18,9 @@ window.addEventListener("turbolinks:load", () => {
     console.log(XHR.status)
       if(XHR.status == 200){
         setTimeout(function(){
+          const adminId=XHR.response.admin_id
           loader.classList.remove('fadein-bg')
-          location.href='/'
+          location.href=`/admins/${adminId}/items`
         },1000)
       }else{
         alert('失敗')

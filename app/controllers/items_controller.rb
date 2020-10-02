@@ -43,7 +43,7 @@ class ItemsController < ApplicationController
     
     @item=Item.new(item_params)
     if @item.save
-      redirect_to  items_path
+      redirect_to admin_items_path(current_admin.id)
     else
       render layout: 'admin', action: :new
     end
@@ -58,16 +58,17 @@ class ItemsController < ApplicationController
   def update
     @item=Item.find(params[:id])
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to  admin_items_path(current_admin.id)
     else
       render  render layout: 'admin', action: :edit
     end
   end
 
   def destroy
+    admin_id=current_admin.id
     item=Item.find(params[:id])
     item.update(hide:true)
-    render json: item
+    render json: admin_id
 
   end
 
