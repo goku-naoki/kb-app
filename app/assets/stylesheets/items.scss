@@ -150,7 +150,7 @@
 }
 
 
-// loader**********************************
+// loader*****************************************
 #overlay{
   width:100%;
   height:100vh;
@@ -220,6 +220,7 @@
      width:40%;
      max-width:485px;
      position:fixed; //どこでも画面基準になる説
+     z-index:10;
      right:5%;
      &-name{
        font-weight:bold;
@@ -228,6 +229,32 @@
      }
      &-price{
       margin-bottom:20px;
+     }
+     &-edit{
+      width:100%;
+      height:40px;
+      padding:12px 0;
+      color:white;
+      background: black;
+      margin-bottom:30px;
+      text-align:center;
+      vertical-align: middle;
+      a{
+        width:100%;
+        height:100%;
+        display: block;
+        color:white;
+      }
+     }
+     &-delete{
+      width:100%;
+      height:40px;
+      padding:12px 0;
+      color:white;
+      background: tomato;
+      margin-bottom:30px;
+      text-align:center;
+      vertical-align: middle;
      }
      &-cart{
        width:100%;

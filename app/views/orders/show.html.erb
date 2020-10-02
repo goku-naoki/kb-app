@@ -1,0 +1,75 @@
+<div id="confirm">
+  <div class="container">
+    <div class="confirm-header">
+      <p>ご注文内容の詳細</p>
+    </div>
+    <div class="confirm-box">
+      <div class="confirm-box-order">
+        <p class="header-p">お届け先</p>
+        <div class="confirm-box-order-detail">
+          <div class="confirm-box-order-detail-address">
+            <div class="confirm-box-order-detail-address-left">         
+              ご住所
+            </div>
+            <div class="confirm-box-order-detail-address-right">
+              〒<%=@order_info.postal_code.to_s+' ' +@order_info.prefecture.name+@order_info.city+@order_info.addresses+@order_info.building%>
+            </div>
+          </div>
+          <div class="confirm-box-order-detail-name">
+            <div class="confirm-box-order-detail-name-left">
+              お名前
+            </div>
+            <div class="confirm-box-order-detail-name-right">
+              <%=@order_info.last_name+@order_info.first_name+' ' +@order_info.last_name_kana+@order_info.first_name_kana%>
+            </div>  
+          </div>
+          <div class="confirm-box-order-detail-phone">
+            <div class="confirm-box-order-detail-phone-left">
+              電話番号
+            </div>
+            <div class="confirm-box-order-detail-phone-right">
+               <%=@order_info.phone_number%>
+            </div>
+          </div>
+          <div class="confirm-box-order-detail-email">
+            <div class="confirm-box-order-detail-email-left">
+              メールアドレス
+            </div>
+            <div class="confirm-box-order-detail-email-right">
+              <%=@order_info.email%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="confirm-box-order-item">
+        <p class="header-p">ご注文商品一覧</p>
+        <ul class="cart-box-left-list">
+          <%amount=0%>
+          <%@order_items.each do |order_item| %>
+            <%amount+=order_item.item.price%>
+            <li class="cart-box-left-list-detail">
+              <div class="cart-box-left-list-detail-left">
+                <div class="cart-box-left-list-detail-left-image">
+                  <%= image_tag order_item.item.images[0] %>
+                </div>
+              </div>
+              <div class="cart-box-left-list-detail-right">
+                <p class="cart-box-left-list-detail-right-name">
+                  <%=order_item.item.name%>
+                </p>
+                <p class="cart-box-left-list-detail-right-price">
+                  ¥<%=order_item.item.price%>
+                </p>
+              </div>
+            </li>
+          <%end%>
+        </ul>
+      </div>
+      <div class="confirm-box-order-price">
+        <p class="header-p"><span>合計金額</span>  ¥<%=amount%>円</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+ 

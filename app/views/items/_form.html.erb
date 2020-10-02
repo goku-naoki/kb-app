@@ -1,0 +1,48 @@
+<div class="create-item-form">
+  <%= form_with  model: item ,local: true do |f| %>
+    <div class="create-item-form-image">
+      <div class="create-item-form-image-preview" id="image-preview">
+        <%if item.persisted?%>
+           <%item.images.each_with_index do |image,index|%>
+             <div class="create-item-form-image-preview-box" data-index="<%=index%>">
+                <div class="image-box">
+                   <%= image_tag image,id:"image-#{index}" %>
+                </div>
+                <div class="create-item-form-image-preview-box-option">
+                  <label for="image-<%=index%>-input">
+                    <p class="image-edit">edit</p>
+                  </label>
+                  <p class="image-delete">delete</p>
+                </div>
+              </div>
+           <%end%>
+        <%end%>
+      </div>
+      <p class="create-item-form-image-title">Chose Images</p>
+      <div class="create-item-form-image-chose" id="input-box">
+        <%if item.persisted?%>
+          <%item.images.each_with_index do |image,index|%>
+            <%= f.file_field :images,name:'item[images][]',data: {index:index} ,class:'image-field',id:"image-#{index}-input",style:"display:none;"%>
+          <%end%>
+        <%end%>
+        <%= f.file_field :images,name:'item[images][]',data: {index:@label_count} ,class:'image-field',id:"image-#{@label_count}-input",style:"display:none;"%>
+      </div>
+      <label for="image-<%=@label_count%>-input" id="image-label">
+        <i class="fa fa-image fa-3x" id="image-icon" ></i>
+      </label>
+    </div>
+    <div class="create-item-form-name">
+      <p class="create-item-form-name-title">Product Name</p>
+      <%= f.text_field :name ,class:'create-item-form-name-field'%>
+    </div>
+    <div class="create-item-form-detail">
+      <p class="create-item-form-detail-title">Product Detail</p>
+      <%= f.text_area :detail,class:'create-item-form-detail-field' %>
+    </div>
+    <div class="create-item-form-price">
+      <p class="create-item-form-price-title">Price</p>
+      <%= f.text_field :price,class:'create-item-form-price-filed' %>
+    </div>
+    <%= f.submit "Submit" ,class:"sell-btn" %>
+  <% end %>
+</div>

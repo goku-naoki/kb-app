@@ -21,7 +21,7 @@ document.addEventListener("turbolinks:load",()=>{
           const fd = new FormData();
           fd.append('item_id',item_id);
           fd.append('_method','DELETE');     //postでもこの記述でdeleteになる！！！！
-          XHR.open("POST", `/delete_item`, true);
+          XHR.open("POST", `/carts/delete_item`, true);
           XHR.setRequestHeader('X-CSRF-Token', token); 
           XHR.responseType = "json";
           XHR.send(fd);

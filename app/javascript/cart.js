@@ -15,7 +15,7 @@ document.addEventListener("turbolinks:load",()=>{
         fd.append('quantity', 4);
        
   
-        XHR.open("POST", `/add_item`, true);
+        XHR.open("POST", `/carts/add_item`, true);
         XHR.setRequestHeader('X-CSRF-Token', token);   //koko!!!  application.contorollerで許可するとsessionだめ
 
         XHR.responseType = "json";

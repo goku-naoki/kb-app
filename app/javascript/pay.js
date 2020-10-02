@@ -34,16 +34,15 @@ window.addEventListener("turbolinks:load", () => {
         console.log(XHR.status)
           if(XHR.status == 200){
             setTimeout(function(){
+              const modal=document.getElementById('modal-wrapper')
               loader.classList.remove('fadein-bg')
+              modal.setAttribute('style','display:block;')
               document.getElementById("pay-form").reset();
-            
             },1000)
           }else{
             loader.classList.remove('fadein-bg')
             alert('失敗')
           }
-        // document.getElementById("pay-form").submit();
-        
         }
       }
       // const formResult = document.getElementById("pay-form");
@@ -64,9 +63,6 @@ window.addEventListener("turbolinks:load", () => {
         if (status === 200) {
       
           const card_token = response.id;
-          // const renderDom = document.getElementById("pay-form");
-          // const tokenObj = `<input value=${token} type="hidden" name='token'>`;
-          // renderDom.insertAdjacentHTML("beforeend", tokenObj);
           sendWithoutCardInfo(card_token)
         } else {
           // window.alert('購入処理に失敗しました。\nお手数ですが最初からやり直してください。');

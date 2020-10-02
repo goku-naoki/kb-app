@@ -1,0 +1,32 @@
+<div id="order-index">
+  <div class="container">
+    <div class="order-index-header">
+      <h2>購入履歴</h2>
+    </div>
+    <div class="order-index-box">
+      <ul class="order-index-box-info">
+        <%@orders.each do |order|%>
+          <li class="order-index-box-info-list"> 
+            <%=link_to order_path(order),class:"order-index-box-info-list-link" do%>
+              <div class="order-index-box-info-list-link-name">
+                <%=order.order_user_info.last_name + order.order_user_info.first_name%>
+              </div>
+              <div class="order-index-box-info-list-link-address">
+                <%="〒" + order.order_user_info.postal_code.to_s + " "+order.order_user_info.prefecture.name+order.order_user_info.city %> 
+              </div>
+              <div class="order-index-box-info-list-link-price">
+                <%amount=0%>
+                <%order.order_items.each do |order_item|%>
+                  <%amount+=order_item.item.price%>
+                <%end%>
+                <%='¥'+amount.to_s+'円'%>
+              </div>
+            <%end%>
+          </li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+   <%# loader %>
+   <%= render "parts/spin"%>
+</div>

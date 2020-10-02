@@ -1,7 +1,11 @@
 <div id="item-detail">
   <div class="container">
     <div class="item-detail-header">
-      <h2>Item Detail</h2>
+      <%if admin_signed_in? && current_page?(admin_item_path(current_admin,@item.id))%>
+        <h2>商品詳細</h2>
+      <%else%>
+        <h2>Item Detail</h2>
+      <%end%>
     </div>
     <div class="item-detail-box">
       <div class="item-detail-box-left">
@@ -18,15 +22,24 @@
         <p class="item-detail-box-right-price">
           ¥<%=@item.price%>円
         </p>
-        <%if @cart_in_this.present?%>
-          <div class="item-detail-box-right-cart-in">
-            カートに入っています
-          </div>
-        <%else%>
-          <div class="item-detail-box-right-cart" id="cart-btn" data-item-id="<%=@item.id%>"  >
-              カートに入れる
-          </div> 
-        <%end%>
+          <%if admin_signed_in? && current_page?(admin_item_path(current_admin,@item.id)) %>
+            <div class="item-detail-box-right-edit"  data-item-id="<%=@item.id%>">
+              <%=link_to '編集する', edit_item_path(@item.id) %>
+            </div> 
+            <div class="item-detail-box-right-delete" id="item-delete" data-item-id="<%=@item.id%>">
+              削除する
+            </div> 
+          <%else%>
+             <%if @cart_in_this.present?%>
+              <div class="item-detail-box-right-cart-in">
+                カートに入っています
+              </div>
+            <%else%>
+              <div class="item-detail-box-right-cart" id="cart-btn" data-item-id="<%=@item.id%>"  >
+                  カートに入れる
+              </div> 
+            <%end%>
+          <%end%>
         <div class="item-detail-box-right-detail">
           <%=@item.detail%>
         </div>
