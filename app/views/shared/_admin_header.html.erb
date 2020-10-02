@@ -1,10 +1,10 @@
 <div  id="header" >
   <div class="header" > 
     <div class="header-left">
-      <h1><%=link_to 'KB',root_path%></h1>
+      <h1><%=link_to 'KB',admins_path%></h1>
     </div>
     <ul class="header-right">
-      <li><%=link_to '出品',admins_path %></li>
+      <li><%=link_to '出品',new_item_path %></li>
       <li><%=link_to '商品一覧',admin_items_path(current_admin) %></li>
       <li><%=link_to '購入履歴',orders_path %></li>
       <li><%=link_to 'プレビュー',items_path %></li>
