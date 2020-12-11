@@ -1,7 +1,9 @@
 window.addEventListener("turbolinks:load", () => {
-  const loader=document.getElementById('overlay')
   const deleteItemBtn=document.getElementById('item-delete')
-  console.log(deleteItemBtn)
+  if(window.location.pathname.match(/^\/admins\/\d\/items\/\d+$/) && deleteItemBtn!=null){
+    const loader=document.getElementById('overlay')
+ 
+ 
   deleteItemBtn.addEventListener('click',()=>{
     loader.classList.add('fadein-bg')
     const XHR =new XMLHttpRequest();
@@ -30,5 +32,7 @@ window.addEventListener("turbolinks:load", () => {
 
     }
   })
+  }
+  
 });
 
