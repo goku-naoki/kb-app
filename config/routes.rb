@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
   }
+  devise_scope :admin do
+    get 'guest', to: 'admins/sessions#new'
+  end
+
 
   root to: "home#index"
   resources :profiles, only: [:index]

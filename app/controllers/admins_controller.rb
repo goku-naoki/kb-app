@@ -1,6 +1,7 @@
 class AdminsController < ApplicationController
   before_action :no_admin
   def index
+   
   
     render layout: 'admin' 
   end

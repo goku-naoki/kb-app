@@ -4,14 +4,25 @@ class Admins::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+
+    #guest用自動ログイン
+    if request.fullpath.include?("guest") && !admin_signed_in?
+      self.resource = resource_class.new(sign_in_params)
+      clean_up_passwords(resource)
+      render "shared/redirect_form" and return
+    end
+
+
+    super
+  
+   
+  end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super
+  end
 
   # DELETE /resource/sign_out
   # def destroy
