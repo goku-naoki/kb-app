@@ -1,6 +1,5 @@
 window.addEventListener("turbolinks:load", () => {
-
-  
+  if(window.location.pathname.match(/^\/order_confirmation/)){
     const PAYJP_PK = process.env.PAYJP_PK
     const loader=document.getElementById('overlay')
     Payjp.setPublicKey("pk_test_a31854acc844849a07138662");
@@ -70,4 +69,7 @@ window.addEventListener("turbolinks:load", () => {
       });
     });
   // }
+  }
+  
+   
 });

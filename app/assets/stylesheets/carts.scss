@@ -136,6 +136,7 @@
              position: absolute;
              bottom:0;
              right:0;
+             cursor: pointer;
              
  
            }
@@ -152,6 +153,7 @@
         background:black;
         line-height:36px;
         a{
+         display: block;
          color:white;
        }
  

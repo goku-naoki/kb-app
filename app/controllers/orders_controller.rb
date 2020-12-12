@@ -110,7 +110,7 @@ class OrdersController < ApplicationController
 
 
       private
-
+      
       def back_to_shop
         unless session[:mgk]
           redirect_to items_path
