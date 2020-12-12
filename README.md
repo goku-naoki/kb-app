@@ -33,7 +33,7 @@ https://kbz-app.herokuapp.com/
 ### :pray:注力ポイント
 ***
 
-*レスポンシブで洗練されたデザイン**
+**レスポンシブで洗練されたデザイン**
 <br>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/60640236/101986048-e0f4c800-3cce-11eb-9e42-139160437ab0.png" width=70%>  
