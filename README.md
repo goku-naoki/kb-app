@@ -46,6 +46,11 @@ https://kbz-app.herokuapp.com/
 <br>
 <br>
 <p align="center">
+  <img src="https://user-images.githubusercontent.com/60640236/101986243-37aed180-3cd0-11eb-8563-f530cc3cb24a.png" width=70%>  
+</p>
+<br>
+<br>
+<p align="center">
   <img src="https://user-images.githubusercontent.com/60640236/101986026-c884ad80-3cce-11eb-9042-66e63fa5aaba.png" width=70%>  
 </p>
 <br>
@@ -53,6 +58,7 @@ https://kbz-app.herokuapp.com/
 <p align="center">
   <img src="https://user-images.githubusercontent.com/60640236/101986008-b4d94700-3cce-11eb-9782-ba8a1b2a8ef8.png" width=70%>  
 </p>
+
 
 **管理機能の実装**
 <br>
