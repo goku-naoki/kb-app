@@ -139,7 +139,9 @@
         height:36px;
         background:black;
         color:white;
-        border:none
+        border:none;
+        font-size: 1rem;
+        cursor: pointer;
       }
     }
    }
@@ -355,7 +357,8 @@
           height:36px;
           background:black;
           color:white;
-          border:none
+          border:none;
+          cursor: pointer;
         }
       }
     }

@@ -27,6 +27,7 @@ document.addEventListener("turbolinks:load",()=>{
               setTimeout(function(){
                 loader.classList.remove('fadein-bg')
                 cartBtn.textContent='カートに入っています'
+                cartBtn.setAttribute('disabled',true)
                 cartBtn.removeAttribute('id')
                 cartBtn.setAttribute("style", "background:#c8c8c8;; opacity: .6;");
               },1000)

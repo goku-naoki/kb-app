@@ -1,5 +1,5 @@
 document.addEventListener("turbolinks:load",()=>{
-  if(window.location.pathname.includes("items/new")){
+  if(window.location.pathname.includes("items/new") || window.location.pathname.match(/^\/items\/\d+\/edit/)){
 
     let imageInputs=Array.from(document.getElementsByClassName('image-field'));
     let imageLength=0;

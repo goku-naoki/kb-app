@@ -1,6 +1,6 @@
 window.addEventListener("turbolinks:load", () => {
   const deleteItemBtn=document.getElementById('item-delete')
-  if(window.location.pathname.match(/^\/admins\/\d\/items\/\d+$/) && deleteItemBtn!=null){
+  if(window.location.pathname.match(/^\/admins\/\d+\/items\/\d+$/) && deleteItemBtn!=null){
     const loader=document.getElementById('overlay')
  
  
