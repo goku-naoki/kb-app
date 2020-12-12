@@ -1,7 +1,7 @@
 #items{
   padding-top: 80px;
    height: calc(100vh - 60px);
-  // overflow:scroll; */
+  overflow:scroll; 
  }
  
  .items-header{
@@ -187,7 +187,7 @@
 
 #item-detail{
   padding-top: 80px;
-  // height:calc(100vh - 80px);
+  min-height:calc(100vh - 60px);
   
   
   /* height: calc(100vh - 80px - 60px);

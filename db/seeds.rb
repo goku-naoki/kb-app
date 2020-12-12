@@ -9,6 +9,6 @@
 
 Admin.create!(
    name: 'kb',
-   email: 'test@icloud.com',
-   password: 'kbtest'
+   email: 'guest@icloud.com',
+   password: 'guest1234'
 )
