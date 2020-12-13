@@ -46,7 +46,7 @@ https://kbz-app.herokuapp.com/
 ##  :boom:機能一覧
 
 1. 商品に関するCRUD<br>
-&emsp; &emsp;■画像複数投稿、プレビュー<br>
+&emsp;■画像複数投稿、プレビュー<br>
 2. 管理者機能
 3. カート追加・削除機能(Ajax)
 4. 商品購入機能(Ajax)
