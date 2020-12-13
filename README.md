@@ -35,7 +35,7 @@ https://kbz-app.herokuapp.com/
 ・言語/フレームワーク<br>
 &emsp; &emsp;■フロントエンド:Pure JS<br>
 &emsp; &emsp;■サーバーサイド: Ruby on Rails<br>
-・DB
+・DB<br>
  &emsp; &emsp;■MySQL<br>
 ・本番環境<br>
  &emsp; &emsp;■Heroku<br>
@@ -45,7 +45,7 @@ https://kbz-app.herokuapp.com/
 
 ##  :boom:機能一覧
 
-1. 商品に関するCRUD
+1. 商品に関するCRUD<br>
 &emsp; &emsp;■画像複数投稿、プレビュー<br>
 2. 管理者機能
 3. カート追加・削除機能(Ajax)
@@ -74,13 +74,15 @@ https://kbz-app.herokuapp.com/
 <br>
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/60640236/101986026-c884ad80-3cce-11eb-9042-66e63fa5aaba.png" width=70%>  
+  <img src="https://user-images.githubusercontent.com/60640236/101986109-45178c00-3ccf-11eb-9f7f-bca61f3cd939.png" width=70%> 
 </p>
 <br>
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/60640236/101986008-b4d94700-3cce-11eb-9782-ba8a1b2a8ef8.png" width=70%>  
+  <img src="https://user-images.githubusercontent.com/60640236/101986026-c884ad80-3cce-11eb-9042-66e63fa5aaba.png" width=70%>  
 </p>
+
+
 
 
 
